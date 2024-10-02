@@ -42,9 +42,11 @@ for data in to_send:
 start_time = time.time()
 duration = 10  # Duration in seconds (anger expressed quickly)
 
-# Continuously move left and right sharply for anger
+# Continuously move left and right sharply for anger with very short pauses
 while time.time() - start_time < duration:
-    send_data([[3200, 3100, positiony_idle, 100], 100])  # Sharp right
-    send_data([[1800, 3200, positiony_idle, 100], 100])  # Sharp left
+    send_data([[3200, 1000, positiony_idle, 100], 100])  # Sharp right with a quick motion
+    send_data([[2500, 3000, positiony_idle, 100], 50])   # Short pause at idle
+    send_data([[1800, 1000, positiony_idle, 100], 100])  # Sharp left with a quick motion
+    send_data([[2500, 3000, positiony_idle, 100], 50])   # Short pause at idle
 
 print("Anger movement completed.")
